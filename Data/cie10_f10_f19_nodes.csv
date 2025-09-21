@@ -1,0 +1,111 @@
+code,label,level,parent,category
+F10,Trastornos por consumo de alcohol,1,,grupo
+F10.0,Intoxicación aguda debidos al alcohol,2,F10,subtipo
+F10.1,Consumo perjudicial debidos al alcohol,2,F10,subtipo
+F10.2,Síndrome de dependencia debidos al alcohol,2,F10,subtipo
+F10.3,Síndrome de abstinencia debidos al alcohol,2,F10,subtipo
+F10.4,Síndrome de abstinencia con delirium debidos al alcohol,2,F10,subtipo
+F10.5,Trastorno psicótico debidos al alcohol,2,F10,subtipo
+F10.6,Síndrome amnésico debidos al alcohol,2,F10,subtipo
+F10.7,Trastorno psicótico o residual y de comienzo tardío debidos al alcohol,2,F10,subtipo
+F10.8,Otros trastornos mentales y del comportamiento debidos al alcohol,2,F10,subtipo
+F10.9,"Trastorno mental y del comportamiento, no especificado debidos al alcohol",2,F10,subtipo
+F11,Trastornos por consumo de opioides,1,,grupo
+F11.0,Intoxicación aguda debidos al opioides,2,F11,subtipo
+F11.1,Consumo perjudicial debidos al opioides,2,F11,subtipo
+F11.2,Síndrome de dependencia debidos al opioides,2,F11,subtipo
+F11.3,Síndrome de abstinencia debidos al opioides,2,F11,subtipo
+F11.4,Síndrome de abstinencia con delirium debidos al opioides,2,F11,subtipo
+F11.5,Trastorno psicótico debidos al opioides,2,F11,subtipo
+F11.6,Síndrome amnésico debidos al opioides,2,F11,subtipo
+F11.7,Trastorno psicótico o residual y de comienzo tardío debidos al opioides,2,F11,subtipo
+F11.8,Otros trastornos mentales y del comportamiento debidos al opioides,2,F11,subtipo
+F11.9,"Trastorno mental y del comportamiento, no especificado debidos al opioides",2,F11,subtipo
+F12,Trastornos por consumo de cannabinoides,1,,grupo
+F12.0,Intoxicación aguda debidos al cannabinoides,2,F12,subtipo
+F12.1,Consumo perjudicial debidos al cannabinoides,2,F12,subtipo
+F12.2,Síndrome de dependencia debidos al cannabinoides,2,F12,subtipo
+F12.3,Síndrome de abstinencia debidos al cannabinoides,2,F12,subtipo
+F12.4,Síndrome de abstinencia con delirium debidos al cannabinoides,2,F12,subtipo
+F12.5,Trastorno psicótico debidos al cannabinoides,2,F12,subtipo
+F12.6,Síndrome amnésico debidos al cannabinoides,2,F12,subtipo
+F12.7,Trastorno psicótico o residual y de comienzo tardío debidos al cannabinoides,2,F12,subtipo
+F12.8,Otros trastornos mentales y del comportamiento debidos al cannabinoides,2,F12,subtipo
+F12.9,"Trastorno mental y del comportamiento, no especificado debidos al cannabinoides",2,F12,subtipo
+F13,Trastornos por consumo de sedantes o hipnóticos,1,,grupo
+F13.0,Intoxicación aguda debidos al sedantes o hipnóticos,2,F13,subtipo
+F13.1,Consumo perjudicial debidos al sedantes o hipnóticos,2,F13,subtipo
+F13.2,Síndrome de dependencia debidos al sedantes o hipnóticos,2,F13,subtipo
+F13.3,Síndrome de abstinencia debidos al sedantes o hipnóticos,2,F13,subtipo
+F13.4,Síndrome de abstinencia con delirium debidos al sedantes o hipnóticos,2,F13,subtipo
+F13.5,Trastorno psicótico debidos al sedantes o hipnóticos,2,F13,subtipo
+F13.6,Síndrome amnésico debidos al sedantes o hipnóticos,2,F13,subtipo
+F13.7,Trastorno psicótico o residual y de comienzo tardío debidos al sedantes o hipnóticos,2,F13,subtipo
+F13.8,Otros trastornos mentales y del comportamiento debidos al sedantes o hipnóticos,2,F13,subtipo
+F13.9,"Trastorno mental y del comportamiento, no especificado debidos al sedantes o hipnóticos",2,F13,subtipo
+F14,Trastornos por consumo de cocaína,1,,grupo
+F14.0,Intoxicación aguda debidos al cocaína,2,F14,subtipo
+F14.1,Consumo perjudicial debidos al cocaína,2,F14,subtipo
+F14.2,Síndrome de dependencia debidos al cocaína,2,F14,subtipo
+F14.3,Síndrome de abstinencia debidos al cocaína,2,F14,subtipo
+F14.4,Síndrome de abstinencia con delirium debidos al cocaína,2,F14,subtipo
+F14.5,Trastorno psicótico debidos al cocaína,2,F14,subtipo
+F14.6,Síndrome amnésico debidos al cocaína,2,F14,subtipo
+F14.7,Trastorno psicótico o residual y de comienzo tardío debidos al cocaína,2,F14,subtipo
+F14.8,Otros trastornos mentales y del comportamiento debidos al cocaína,2,F14,subtipo
+F14.9,"Trastorno mental y del comportamiento, no especificado debidos al cocaína",2,F14,subtipo
+F15,Trastornos por consumo de otros estimulantes (incluida la cafeína),1,,grupo
+F15.0,Intoxicación aguda debidos al otros estimulantes (incluida la cafeína),2,F15,subtipo
+F15.1,Consumo perjudicial debidos al otros estimulantes (incluida la cafeína),2,F15,subtipo
+F15.2,Síndrome de dependencia debidos al otros estimulantes (incluida la cafeína),2,F15,subtipo
+F15.3,Síndrome de abstinencia debidos al otros estimulantes (incluida la cafeína),2,F15,subtipo
+F15.4,Síndrome de abstinencia con delirium debidos al otros estimulantes (incluida la cafeína),2,F15,subtipo
+F15.5,Trastorno psicótico debidos al otros estimulantes (incluida la cafeína),2,F15,subtipo
+F15.6,Síndrome amnésico debidos al otros estimulantes (incluida la cafeína),2,F15,subtipo
+F15.7,Trastorno psicótico o residual y de comienzo tardío debidos al otros estimulantes (incluida la cafeína),2,F15,subtipo
+F15.8,Otros trastornos mentales y del comportamiento debidos al otros estimulantes (incluida la cafeína),2,F15,subtipo
+F15.9,"Trastorno mental y del comportamiento, no especificado debidos al otros estimulantes (incluida la cafeína)",2,F15,subtipo
+F16,Trastornos por consumo de alucinógenos,1,,grupo
+F16.0,Intoxicación aguda debidos al alucinógenos,2,F16,subtipo
+F16.1,Consumo perjudicial debidos al alucinógenos,2,F16,subtipo
+F16.2,Síndrome de dependencia debidos al alucinógenos,2,F16,subtipo
+F16.3,Síndrome de abstinencia debidos al alucinógenos,2,F16,subtipo
+F16.4,Síndrome de abstinencia con delirium debidos al alucinógenos,2,F16,subtipo
+F16.5,Trastorno psicótico debidos al alucinógenos,2,F16,subtipo
+F16.6,Síndrome amnésico debidos al alucinógenos,2,F16,subtipo
+F16.7,Trastorno psicótico o residual y de comienzo tardío debidos al alucinógenos,2,F16,subtipo
+F16.8,Otros trastornos mentales y del comportamiento debidos al alucinógenos,2,F16,subtipo
+F16.9,"Trastorno mental y del comportamiento, no especificado debidos al alucinógenos",2,F16,subtipo
+F17,Trastornos por consumo de tabaco,1,,grupo
+F17.0,Intoxicación aguda debidos al tabaco,2,F17,subtipo
+F17.1,Consumo perjudicial debidos al tabaco,2,F17,subtipo
+F17.2,Síndrome de dependencia debidos al tabaco,2,F17,subtipo
+F17.3,Síndrome de abstinencia debidos al tabaco,2,F17,subtipo
+F17.4,Síndrome de abstinencia con delirium debidos al tabaco,2,F17,subtipo
+F17.5,Trastorno psicótico debidos al tabaco,2,F17,subtipo
+F17.6,Síndrome amnésico debidos al tabaco,2,F17,subtipo
+F17.7,Trastorno psicótico o residual y de comienzo tardío debidos al tabaco,2,F17,subtipo
+F17.8,Otros trastornos mentales y del comportamiento debidos al tabaco,2,F17,subtipo
+F17.9,"Trastorno mental y del comportamiento, no especificado debidos al tabaco",2,F17,subtipo
+F18,Trastornos por consumo de disolventes volátiles,1,,grupo
+F18.0,Intoxicación aguda debidos al disolventes volátiles,2,F18,subtipo
+F18.1,Consumo perjudicial debidos al disolventes volátiles,2,F18,subtipo
+F18.2,Síndrome de dependencia debidos al disolventes volátiles,2,F18,subtipo
+F18.3,Síndrome de abstinencia debidos al disolventes volátiles,2,F18,subtipo
+F18.4,Síndrome de abstinencia con delirium debidos al disolventes volátiles,2,F18,subtipo
+F18.5,Trastorno psicótico debidos al disolventes volátiles,2,F18,subtipo
+F18.6,Síndrome amnésico debidos al disolventes volátiles,2,F18,subtipo
+F18.7,Trastorno psicótico o residual y de comienzo tardío debidos al disolventes volátiles,2,F18,subtipo
+F18.8,Otros trastornos mentales y del comportamiento debidos al disolventes volátiles,2,F18,subtipo
+F18.9,"Trastorno mental y del comportamiento, no especificado debidos al disolventes volátiles",2,F18,subtipo
+F19,Trastornos por consumo de múltiples drogas y otras sustancias psicoactivas,1,,grupo
+F19.0,Intoxicación aguda debidos al múltiples drogas y otras sustancias psicoactivas,2,F19,subtipo
+F19.1,Consumo perjudicial debidos al múltiples drogas y otras sustancias psicoactivas,2,F19,subtipo
+F19.2,Síndrome de dependencia debidos al múltiples drogas y otras sustancias psicoactivas,2,F19,subtipo
+F19.3,Síndrome de abstinencia debidos al múltiples drogas y otras sustancias psicoactivas,2,F19,subtipo
+F19.4,Síndrome de abstinencia con delirium debidos al múltiples drogas y otras sustancias psicoactivas,2,F19,subtipo
+F19.5,Trastorno psicótico debidos al múltiples drogas y otras sustancias psicoactivas,2,F19,subtipo
+F19.6,Síndrome amnésico debidos al múltiples drogas y otras sustancias psicoactivas,2,F19,subtipo
+F19.7,Trastorno psicótico o residual y de comienzo tardío debidos al múltiples drogas y otras sustancias psicoactivas,2,F19,subtipo
+F19.8,Otros trastornos mentales y del comportamiento debidos al múltiples drogas y otras sustancias psicoactivas,2,F19,subtipo
+F19.9,"Trastorno mental y del comportamiento, no especificado debidos al múltiples drogas y otras sustancias psicoactivas",2,F19,subtipo

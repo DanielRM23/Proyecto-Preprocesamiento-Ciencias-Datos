@@ -1,0 +1,37 @@
+# ----------------------------------------------------
+# Archivos generados por los scripts
+# (La base de datos, los CSV limpios, los modelos, etc.)
+# ----------------------------------------------------
+*.db
+*.pkl
+*_clean.csv
+cowese_matches.csv
+cowese_sentences.csv
+
+# ----------------------------------------------------
+# El corpus de texto COMPLETO (el que pesa varios Gigas)
+# ----------------------------------------------------
+CoWeSe.txt
+
+# ----------------------------------------------------
+# Carpetas y archivos de Python
+# (Caché y entornos virtuales)
+# ----------------------------------------------------
+__pycache__/
+.venv/
+venv/
+
+# ----------------------------------------------------
+# Carpetas de documentación y reportes (Opcional)
+# (Para mantener el repositorio enfocado en el código)
+# ----------------------------------------------------
+#docs/
+#reporte/
+#Imagenes/
+#pdfs/
+
+# ----------------------------------------------------
+# Archivos del Sistema Operativo (Buena práctica)
+# ----------------------------------------------------
+.DS_Store
+Thumbs.db
