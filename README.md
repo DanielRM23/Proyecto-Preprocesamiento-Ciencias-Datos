@@ -7,6 +7,7 @@
 Integrantes del Equipo 5:
 
 -Fernando Rodrigo Valenzuela García de León (fer_rodri-val@hotmail.com)
+
 -Daniel Rojo Mata (danielrojomata@gmail.com)
 
 Este proyecto integra tres tipos de fuentes de datos (relacional, grafo y texto) para analizar el consumo de sustancias psicoactivas en México. Utiliza los códigos de la Clasificación Internacional de Enfermedades (CIE-10), específicamente del bloque F10-F19, como el nexo de unión entre las distintas fuentes.
@@ -31,11 +32,7 @@ pip install pandas sqlalchemy psycopg2-binary networkx scikit-learn
 
 ## Instalación y Configuración
 
-1.  **Clona este repositorio**:
-    ```bash
-    git clone [https://github.com/tu-usuario/proyecto-salud-federada.git](https://github.com/tu-usuario/proyecto-salud-federada.git)
-    cd proyecto-salud-federada
-    ```
+1.  **Clona este repositorio**.
 2.  **Añade los datos fuente**: Descarga los siguientes 6 archivos CSV y colócalos dentro de la carpeta `/Data`:
     - `defunciones_uso_sustancias.csv`
     - `urgencias_uso_sustancias.csv`
