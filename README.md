@@ -103,10 +103,10 @@ Para reproducir los resultados con el corpus de texto completo:
 ## Estructura del Repositorio
 
 ```
-├── Data/                 # Contiene los 6 CSV fuente que debes añadir.
+├── Data/                 # Contiene los 6 CSV fuente que se usan.
 ├── Scripts/              # Contiene todos los scripts de Python del proyecto.
 ├── Textos/               # Carpeta generada por `procesar_cowese_textos.py`.
-├── .gitignore            # Ignora archivos generados y datos masivos.
+├── .gitignore            # Ignora archivos generados y datos masivos (ignora todo el corpus).
 ├── README.md             # Este archivo.
 └── CoWeSe_sample.txt     # Muestra del corpus para la ejecución rápida.
 ```
