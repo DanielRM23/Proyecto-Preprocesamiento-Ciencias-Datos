@@ -105,6 +105,7 @@ Para reproducir los resultados con el corpus de texto completo:
 ```
 ├── Data/                 # Contiene los 6 CSV fuente que se usan.
 ├── Scripts/              # Contiene todos los scripts de Python del proyecto.
+├── docs/                 # Contiene los reportes de las entregas. 
 ├── Textos/               # Carpeta generada por `procesar_cowese_textos.py`.
 ├── .gitignore            # Ignora archivos generados y datos masivos (ignora todo el corpus).
 ├── README.md             # Este archivo.
