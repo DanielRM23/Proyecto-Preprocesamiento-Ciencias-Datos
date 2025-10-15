@@ -58,7 +58,7 @@ Este modo utiliza el archivo `CoWeSe_sample.txt` (incluido en el repositorio) pa
   Limpia los archivos crudos de defunciones y urgencias.
   
   **comandos**:
-      - python Scripts/limpiar_psa.py
+      - `python Scripts/limpiar_psa.py`
   
   salida:
       - "defunciones_uso_sustancias_clean.csv"
@@ -69,7 +69,7 @@ Este modo utiliza el archivo `CoWeSe_sample.txt` (incluido en el repositorio) pa
   Procesa el corpus CoWeSe y genera las frases normalizadas asociadas a CIE-10.
 
   **comandos**:
-      - python Scripts/procesar_cowese_textos.py --cowese CoWeSe_sample.txt --outdir ./Textos
+      - `python Scripts/procesar_cowese_textos.py --cowese CoWeSe_sample.txt --outdir ./Textos`
 
   salida:
       - "textos_cie10_frases.csv"
@@ -80,9 +80,9 @@ Este modo utiliza el archivo `CoWeSe_sample.txt` (incluido en el repositorio) pa
   Limpia los archivos originales de defunciones, urgencias, grafo y texto para asegurar consistencia, eliminar duplicados y normalizar nombres.
 
   **comandos**:
-      - python Scripts/limpiar_csv_sql.py
-      - python Scripts/limpiar_grafos.py
-      - python Scripts/limpiar_textos.py
+      - `python Scripts/limpiar_csv_sql.py`
+      - `python Scripts/limpiar_grafos.py`
+      - `python Scripts/limpiar_textos.py`
 
   archivos_generados:
       - Data/defunciones_uso_sustancias_clean.csv
@@ -96,7 +96,7 @@ Este modo utiliza el archivo `CoWeSe_sample.txt` (incluido en el repositorio) pa
   Integra los datos limpios (SQL, grafo y texto) en una sola base SQLite.
 
   **comandos**:
-  - python Scripts/build_base_final.py
+  - `python Scripts/build_base_final.py`
 
   salida:
       - "salud_federada.db"
