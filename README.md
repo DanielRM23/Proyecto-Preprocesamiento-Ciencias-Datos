@@ -53,28 +53,36 @@ Este modo utiliza el archivo `CoWeSe_sample.txt` (incluido en el repositorio) pa
 
 **Ejecuta los siguientes scripts en orden desde la terminal:**
 
-1.  **Limpiar los datos CSV**:
-    ```bash
-    python Scripts/limpiar_psa.py
-    ```
-    Se crearán los archivos:
-    -defunciones_uso_sustancias_clean.csv
-    -urgencias_uso_sustancias_clean.csv
-2.  **Procesar los textos y crear el índice**:
-    ```bash
-    python Scripts/procesar_cowese_textos.py --cowese CoWeSe_sample.txt --outdir ./Textos
-    ```
-3.  **Cargar todo y crear la base de datos federada**:
-    (Este script creará un archivo `salud_federada.db` en la raíz del proyecto).
-    ```bash
-    python Scripts/salud_federada_prototipo.py --data-dir ./Data
-    ```
-4.  **(Opcional) Ver un análisis de ejemplo**:
-    ```bash
-    python Scripts/final.py
-    ```
+- Paso: 1. "Limpiar los datos CSV".
+  Limpia los archivos crudos de defunciones y urgencias.
+  **comandos**: - python Scripts/limpiar_psa.py
+  salida: - "defunciones_uso_sustancias_clean.csv" - "urgencias_uso_sustancias_clean.csv"
 
-### Ejemplo de Consulta Federada
+- Paso: 2. "Procesar los textos y crear el índice"
+  Procesa el corpus CoWeSe y genera las frases normalizadas asociadas a CIE-10.
+  **comandos**: - python Scripts/procesar_cowese_textos.py --cowese CoWeSe_sample.txt --outdir ./Textos
+  salida: - "textos_cie10_frases.csv" - "textos_cie10_frases_x_docs.csv"
+
+- Paso 3: Limpieza de Datos.
+  Limpia los archivos originales de defunciones, urgencias, grafo y textos
+  para asegurar consistencia, eliminar duplicados y normalizar nombres.
+  **comandos**: - python Scripts/limpiar_csv_sql.py - python Scripts/limpiar_grafos.py - python Scripts/limpiar_textos.py
+  archivos_generados: - Data/defunciones_uso_sustancias_clean.csv - Data/urgencias_uso_sustancias_clean.csv - Data/cie10_nodes_clean.csv - Data/cie10_edges_enriched.csv - Data/textos_cie10_frases.csv
+
+- Paso: 4. Construir la base de datos federada.
+  Integra los datos limpios (SQL, grafo y texto) en una sola base SQLite.
+  **comandos**: - python Scripts/build_base_final.py
+  salida: - "salud_federada.db"
+
+- Paso: 5. Consultar y explorar resultados.
+  Permite realizar búsquedas textuales y consultas analíticas sobre la base unificada.
+  ejemplos:
+  - python Scripts/buscar_unificado.py 'cocaína'
+  - python Scripts/buscar_unificado.py 'alcohol' --top-origen
+  - python Scripts/buscar_unificado.py --codigo F14 --ejemplos-sql --limit 10
+  - python Scripts/buscar_unificado.py 'cannabis' --export-all docs/Entrega4_cannabis
+
+<!-- ### Ejemplo de Consulta Federada
 
 Una vez creada la base de datos, puedes hacer consultas que combinen las tres fuentes de datos. Por ejemplo, para buscar información sobre "intoxicación por cocaína":
 
@@ -96,7 +104,7 @@ Para reproducir los resultados con el corpus de texto completo:
 2.  **Sigue los mismos pasos** que en el modo de demostración, pero en el paso 2, apunta al archivo completo:
     ```bash
     python Scripts/procesar_cowese_textos.py --cowese CoWeSe.txt --outdir ./Textos
-    ```
+    ``` -->
 
 ---
 
@@ -105,7 +113,7 @@ Para reproducir los resultados con el corpus de texto completo:
 ```
 ├── Data/                 # Contiene los 6 CSV fuente que se usan.
 ├── Scripts/              # Contiene todos los scripts de Python del proyecto.
-├── docs/                 # Contiene los reportes de las entregas. 
+├── docs/                 # Contiene los reportes de las entregas.
 ├── Textos/               # Carpeta generada por `procesar_cowese_textos.py`.
 ├── .gitignore            # Ignora archivos generados y datos masivos (ignora todo el corpus).
 ├── README.md             # Este archivo.
