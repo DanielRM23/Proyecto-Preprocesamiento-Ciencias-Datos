@@ -77,9 +77,7 @@ Este modo utiliza el archivo `CoWeSe_sample.txt` (incluido en el repositorio) pa
 
 - Paso 3: Limpieza de Datos.
 
-  Limpia los archivos originales de defunciones, urgencias, grafo y textos
-
-  para asegurar consistencia, eliminar duplicados y normalizar nombres.
+  Limpia los archivos originales de defunciones, urgencias, grafo y texto para asegurar consistencia, eliminar duplicados y normalizar nombres.
 
   **comandos**:
       - python Scripts/limpiar_csv_sql.py
@@ -98,7 +96,7 @@ Este modo utiliza el archivo `CoWeSe_sample.txt` (incluido en el repositorio) pa
   Integra los datos limpios (SQL, grafo y texto) en una sola base SQLite.
 
   **comandos**:
-      - python Scripts/build_base_final.py
+  - python Scripts/build_base_final.py
 
   salida:
       - "salud_federada.db"
