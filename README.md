@@ -43,6 +43,34 @@ pip install pandas sqlalchemy psycopg2-binary networkx scikit-learn
 
 ---
 
+## Configuración del entorno LLM local
+
+El proyecto utiliza Ollama como motor local para ejecutar modelos de lenguaje (sin API externa).
+Esto permite correr el sistema RAG/LLM completamente offline sobre CPU.
+
+1. Instalar Ollama
+
+   Descarga e instala Ollama desde su sitio oficial:
+   https://ollama.com/download
+
+2. Una vez instalado, verifica que funciona:
+
+- `ollama --version`
+
+3. Descargar el modelo Mistral.
+   Usa este comando para obtener el modelo local:
+
+- `ollama pull mistral`
+
+Esto descargará ~4 GB del modelo Mistral 7B Instruct, optimizado para CPU.
+
+4. Probar el modelo.
+   Verifica que el modelo responde correctamente:
+
+   -`ollama run mistral`
+
+(Escribe algo breve, como “hola, ¿quién eres?”, y presiona Enter para salir con Ctrl+C.)
+
 ## Instrucciones de Uso
 
 El proyecto se puede ejecutar en dos modos: un modo de demostración rápido que usa una muestra de datos de texto, y un modo completo.
@@ -54,74 +82,102 @@ Este modo utiliza el archivo `CoWeSe_sample.txt` (incluido en el repositorio) pa
 **Ejecuta los siguientes scripts en orden desde la terminal:**
 
 - Paso: 1. "Limpiar los datos CSV".
-  
   Limpia los archivos crudos de defunciones y urgencias.
-  
+
   - **comandos**:
-      - `python Scripts/limpiar_psa.py`
-  
+
+    - `python Scripts/limpiar_psa.py`
+
   - salida:
-      - "defunciones_uso_sustancias_clean.csv"
-      - "urgencias_uso_sustancias_clean.csv"
+    - "defunciones_uso_sustancias_clean.csv"
+    - "urgencias_uso_sustancias_clean.csv"
 
 - Paso: 2. "Procesar los textos y crear el índice"
-  
   Procesa el corpus CoWeSe y genera las frases normalizadas asociadas a CIE-10.
 
   - **comandos**:
-      - `python Scripts/procesar_cowese_textos.py --cowese CoWeSe_sample.txt --outdir ./Textos`
+
+    - `python Scripts/procesar_cowese_textos.py --cowese CoWeSe_sample.txt --outdir ./Textos`
 
   - salida:
-      - "textos_cie10_frases.csv"
-      - "textos_cie10_frases_x_docs.csv"
+    - "textos_cie10_frases.csv"
+    - "textos_cie10_frases_x_docs.csv"
 
-- Paso 3: Limpieza de Datos.
+- Paso: 2.5."Perfilado de datos".
+  Se realiza el perfilado de los datos para evaluar la calidad de los archivos de hechos, grafo y texto antes de su integración a la base de datos.
+  El proceso detecta inconsistencias como columnas faltantes, formatos incorrectos, valores nulos, duplicados y códigos CIE-10 fuera del rango F10–F19, además de validar la estructura y coherencia entre los distintos dominios del proyecto.
 
+  - **comandos**:
+
+    - `python Scripts/perfilado_csv.py`
+    - `python Scripts/perfilado_grafo.py`
+    - `python Scripts/perfilado_textos.py`
+
+  - Salida: docs/perfilado/csv/
+
+    - 01_conteos.csv — número de filas por tabla
+    - 02_nulos.csv — conteo de campos nulos
+    - 03_rango_anios.csv — años mínimo y máximo detectados
+    - 04_fuera_rango.csv — códigos fuera de F10–F19
+    - 05_duplicados.csv — filas en grupos duplicados
+    - 06_distribucion_sexo.csv — distribución por sexo
+    - perfilado_csv_sql_resumen.md — resumen general del perfilado
+
+  - Salida: docs/perfilado/grafo/
+
+    - 01_nodos.csv — resumen de nodos y descripciones vacías
+    - 02_aristas.csv — resumen de aristas y nulos
+    - 03_aristas_huerfanas.csv — aristas que no conectan con nodos válidos
+    - perfilado_csv_grafo_resumen.md — resumen general del perfilado
+
+  - Salida: docs/perfilado/texto/
+
+    - 01_conteos_frases.csv — total de filas y frases vacías
+    - 02_duplicados.csv — número de frases repetidas
+    - 03_fuera_rango.csv — frases con códigos fuera de F10–F19
+    - perfilado_csv_texto_resumen.md — resumen general del perfilado
+
+- Paso 3: "Limpieza de Datos".
   Limpia los archivos originales de defunciones, urgencias, grafo y texto para asegurar consistencia, eliminar duplicados y normalizar nombres.
 
   - **comandos**:
-      - `python Scripts/limpiar_csv_sql.py`
-      - `python Scripts/limpiar_grafos.py`
-      - `python Scripts/limpiar_textos.py`
+
+    - `python Scripts/limpiar_csv_sql.py`
+    - `python Scripts/limpiar_grafos.py`
+    - `python Scripts/limpiar_textos.py`
 
   - archivos_generados:
-      - Data/defunciones_uso_sustancias_clean.csv
-      - Data/urgencias_uso_sustancias_clean.csv
-      - Data/cie10_nodes_clean.csv
-      - Data/cie10_edges_enriched.csv
-      - Data/textos_cie10_frases.csv
+    - Data/defunciones_uso_sustancias_clean.csv
+    - Data/urgencias_uso_sustancias_clean.csv
+    - Data/cie10_nodes_clean.csv
+    - Data/cie10_edges_enriched.csv
+    - Data/textos_cie10_frases.csv
 
-- Paso: 4. Construir la base de datos federada.
-
+- Paso: 4. "Construir la base de datos federada".
   Integra los datos limpios (SQL, grafo y texto) en una sola base SQLite.
 
   - **comandos**:
-      - `python Scripts/build_base_final.py`
+
+    - `python Scripts/build_base_final.py`
 
   - salida:
-      - "salud_federada.db"
+    - "salud_federada.db"
 
-- Paso: 5. Consultar y explorar resultados.
-  Permite realizar búsquedas textuales y consultas analíticas sobre la base unificada.
-  ejemplos:
-  - python Scripts/buscar_unificado.py 'cocaína'
-  - python Scripts/buscar_unificado.py 'alcohol' --top-origen
-  - python Scripts/buscar_unificado.py --codigo F14 --ejemplos-sql --limit 10
-  - python Scripts/buscar_unificado.py 'cannabis' --export-all docs/Entrega4_cannabis
+- Paso: 5. "Crear vista unificada".
+  Construye la vista unificada v_unificado dentro de la base de datos salud_federada.db.
+  Integra en una sola estructura las tres fuentes de información del proyecto.
+  El resultado es una vista que consolida eventos, relaciones y texto contextual, lista para consultas federadas o semánticas.
+  También se crean otras vistas auxiliares (v_eventos, v_eventos_por_codigo, v_relaciones_epidemiologicas, etc.) que permiten análisis cruzados por código, fuente o tipo de relación.
 
-<!-- ### Ejemplo de Consulta Federada
+  - **comandos**:
+    - `python Scripts/crear_vista_unificada.py`
 
-Una vez creada la base de datos, puedes hacer consultas que combinen las tres fuentes de datos. Por ejemplo, para buscar información sobre "intoxicación por cocaína":
+- Paso: 6. "Consultar y explorar resultados".
+  Ejecuta el sistema de consultas automáticas híbridas (RAG + SQL) sobre la base salud_federada.db utilizando el modelo local Mistral (vía Ollama).
+  Los resultados se almacenan en: docs/llm_resultados/
 
-```bash
-python Scripts/salud_federada_prototipo.py --data-dir ./Data --texto "intoxicación por cocaína"
-```
-
-**¿Qué hará este comando?**
-
-1.  **Texto -> Código**: Mapeará la palabra "cocaína" al código CIE-10 **F14**.
-2.  **Código -> SQL**: Consultará la base de datos para obtener el número de defunciones por F14, agrupado por año y entidad.
-3.  **Código -> Grafo**: Consultará el grafo para obtener los subtipos de diagnóstico asociados a F14 (ej. F14.0, F14.1, etc.).
+  - **comandos**:
+    - `python Scripts/consultas_llm.py`
 
 ### Modo Completo
 
@@ -131,7 +187,7 @@ Para reproducir los resultados con el corpus de texto completo:
 2.  **Sigue los mismos pasos** que en el modo de demostración, pero en el paso 2, apunta al archivo completo:
     ```bash
     python Scripts/procesar_cowese_textos.py --cowese CoWeSe.txt --outdir ./Textos
-    ``` -->
+    ```
 
 ---
 
