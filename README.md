@@ -103,7 +103,14 @@ Este modo utiliza el archivo `CoWeSe_sample.txt` (incluido en el repositorio) pa
     - "textos_cie10_frases.csv"
     - "textos_cie10_frases_x_docs.csv"
 
-- Paso: 2.5."Perfilado de datos".
+- Paso 3. "Construcción del grafo"
+  Construye el grafo de comorbilidad y policonsumo asociado al bloque CIE-10 F10–F19, utilizando los archivos de nodos y aristas generados durante el preprocesamiento.
+
+  - **comandos**:
+
+    - `python Scripts\generar_grafo.py`
+
+- Paso 4."Perfilado de datos".
   Se realiza el perfilado de los datos para evaluar la calidad de los archivos de hechos, grafo y texto antes de su integración a la base de datos.
   El proceso detecta inconsistencias como columnas faltantes, formatos incorrectos, valores nulos, duplicados y códigos CIE-10 fuera del rango F10–F19, además de validar la estructura y coherencia entre los distintos dominios del proyecto.
 
@@ -111,7 +118,7 @@ Este modo utiliza el archivo `CoWeSe_sample.txt` (incluido en el repositorio) pa
 
     - `python Scripts/perfilado_csv.py`
     - `python Scripts/perfilado_grafo.py`
-    - `python Scripts/perfilado_textos.py`
+    - `python Scripts/perfilado_texto.py`
 
   - Salida: docs/perfilado/csv/
 
@@ -172,12 +179,23 @@ Este modo utiliza el archivo `CoWeSe_sample.txt` (incluido en el repositorio) pa
   - **comandos**:
     - `python Scripts/crear_vista_unificada.py`
 
-- Paso: 6. "Consultar y explorar resultados".
+- Paso: 6. "Consultar y explorar resultados de las preguntas Descriptivas".
+  Resuelve las 10 preguntas DESCRIPTIVAS del proyecto usando SQL + pandas,
+  y genera gráficas para su análisis.
+
+  - **comandos**:
+    - `python Scripts/consultas_descriptivas.py`
+
+- Paso: 7. "Consultar y explorar resultados de las preguntas Predictivas".
   Ejecuta el sistema de consultas automáticas híbridas (RAG + SQL) sobre la base salud_federada.db utilizando el modelo local Mistral (vía Ollama).
   Los resultados se almacenan en: docs/llm_resultados/
 
   - **comandos**:
-    - `python Scripts/consultas_llm.py`
+    - `python Scripts/consultas_predictivas.py`
+
+- Paso 8 (opcional). "Consultar y explorar resultados de las preguntas Descriptivas usando LLM".
+  - **comandos**:
+    - `python Scripts/consultas_rag.py`
 
 ### Modo Completo
 
