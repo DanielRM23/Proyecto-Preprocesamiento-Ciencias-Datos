@@ -180,22 +180,47 @@ Este modo utiliza el archivo `CoWeSe_sample.txt` (incluido en el repositorio) pa
     - `python Scripts/crear_vista_unificada.py`
 
 - Paso: 6. "Consultar y explorar resultados de las preguntas Descriptivas".
-  Resuelve las 10 preguntas DESCRIPTIVAS del proyecto usando SQL + pandas,
+  Resuelve las 10 preguntas descriptivas del proyecto usando SQL + pandas,
   y genera gráficas para su análisis.
 
   - **comandos**:
+
     - `python Scripts/consultas_descriptivas.py`
+
+  - salida:
+    - docs/consultas_descriptivas
+    - docs/figuras_descriptivas
 
 - Paso: 7. "Consultar y explorar resultados de las preguntas Predictivas".
   Ejecuta el sistema de consultas automáticas híbridas (RAG + SQL) sobre la base salud_federada.db utilizando el modelo local Mistral (vía Ollama).
   Los resultados se almacenan en: docs/llm_resultados/
 
   - **comandos**:
+
     - `python Scripts/consultas_predictivas.py`
 
+  - salida:
+    - docs/llm_resultados_predcitivas
+
 - Paso 8 (opcional). "Consultar y explorar resultados de las preguntas Descriptivas usando LLM".
+  Se responden las 20 preguntas generadas utilizando el LLM.
+
   - **comandos**:
+
     - `python Scripts/consultas_rag.py`
+
+    - salida:
+      - docs/llm_resultados
+
+- Paso 9 (opcional). "Ejecución del módulo de consultas heterogéneas con LLM"
+  Este paso activa un sistema automatizado donde un modelo LLM traduce las 20 preguntas de negocio en bloques de código SQL, grafo y vectorial. El script ejecuta el código SQL directamente sobre salud_federada.db, valida los resultados, captura errores y genera archivos con el código producido y los resultados obtenidos.
+
+  - **comandos**:
+
+    - `python Scripts/consultas_llm_codigo.py`
+
+    - salida:
+      - docs/consultas_llm_codigo
 
 ### Modo Completo
 
